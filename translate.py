@@ -33,6 +33,10 @@ SCHEDULE = ["Schedule"]
 PRIORITIES = ["Top priorities"]
 MORE = ["More"]
 REFLECT = ["Reflect"]
+PLANNING = ["Planning"]
+GOALS = ["Goals"]
+NEXT_STEPS = ["Next Steps"]
+RESOURCES = ["Resources Needed"]
 PHRASES = ["Things I'm grateful for", "The best thing that happened today", "Daily log"]
 
 def handle_all() -> None:
@@ -43,6 +47,7 @@ def handle_all() -> None:
     handle_daily()
     handle_daily_reflect()
     handle_daily_notes()
+    handle_daily_planning()
     handle_notes_indexed()
 
 def add_identifier(keys: list[str], func: Callable[[str], str] = lambda x: x, dictionary: dict[str, str] = translation) -> dict[str, str]:
@@ -155,6 +160,25 @@ def handle_daily_notes() -> None:
         text = text.replace(english, spanish)
 
     with open("out/daily_notes.tex", "w") as file:
+        file.write(font_edit)
+        file.write(text)
+
+def handle_daily_planning() -> None:
+    with open("out/daily_planning.tex", "r") as file:
+        text = file.read()
+
+    replace = add_identifier(MONTHS, lambda x: "}{" + x + "}")
+    replace |= add_identifier(WEEK, lambda x: "}{" + x)
+    replace |= add_identifier(WEEKDAYS, lambda x: "}{" + x + ",")
+    replace |= add_identifier(WEEKDAYS_SHORT, lambda x: "}{" + x + ",")
+    replace |= add_identifier(PLANNING, lambda x: "{" + x + "}")
+    replace |= add_identifier(GOALS, lambda x: "{" + x + "}")
+    replace |= add_identifier(NEXT_STEPS, lambda x: "{" + x + "}")
+    replace |= add_identifier(RESOURCES, lambda x: "{" + x + "}")
+    for english, spanish in replace.items():
+        text = text.replace(english, spanish)
+
+    with open("out/daily_planning.tex", "w") as file:
         file.write(font_edit)
         file.write(text)
 

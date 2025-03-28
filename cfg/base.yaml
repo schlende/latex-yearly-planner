@@ -1,8 +1,8 @@
 weekstart: 1
 ampmtime: false
-dotted: true
+dotted: false
 calafterschedule: false
-addlasthalfhour: true
+addlasthalfhour: false
 
 layout:
   paper:
@@ -20,24 +20,25 @@ layout:
       right: 0.5cm
 
   numbers:
-    arraystretch: 1.5
-    quarterlylines: 36
-    weeklylines: 11
-    dailytodos: 8
-    dailynotes: 25
-    dailypersonal: 6
-    dailybottomhour: 7
-    dailytophour: 23
-    dailydiarygoals: 10
-    dailydiarygrateful: 4
-    dailydiarybest: 4
-    dailydiarylog: 24
-    todolinesintodopage: 10
-    notesindexpages: 3
-    notesonpage: 35
-    dotheightfull: 36
-    dotwidthfull: 30
-    dotwidthtwothirds: 20
+    arraystretch: 1.5                # Controls vertical spacing in tables (LaTeX parameter)
+    quarterlylines: 36               # Number of lines in quarterly planning sections
+    weeklylines: 11                  # Number of lines in weekly planning sections
+    dailytodos: 8                    # Number of todo items in daily pages
+    dailynotes: 25                   # Number of note lines in daily pages
+    dailypersonal: 6                 # Number of personal items in daily pages
+    dailybottomhour: 6               # Starting hour for daily schedule (7 AM)
+    dailytophour: 23                 # Ending hour for daily schedule (11 PM)
+    dailydiarygoals: 10              # Number of goal lines in daily diary section
+    dailydiarygrateful: 4            # Number of gratitude lines in daily diary
+    dailydiarybest: 4                # Number of "best things" lines in daily diary
+    dailydiarylog: 29                # Number of log lines in daily diary
+    todolinesintodopage: 10          # Number of todo lines in dedicated todo pages
+    notesindexpages: 3               # Number of pages for notes index
+    notesonpage: 35                  # Number of note lines per notes page
+    dotheightfull: 36                # Height of dot grid (full page) in units
+    dotwidthfull: 30                 # Width of dot grid (full page) in units
+    dotwidthtwothirds: 20            # Width of dot grid (2/3 page) in units
+    planningstoryrows: 18
 
   lengths:
     tabcolsep: 3.5pt

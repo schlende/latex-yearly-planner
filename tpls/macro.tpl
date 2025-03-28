@@ -22,6 +22,7 @@
 \newcommand{\myNumDailyDiaryLog}{ {{- $numbers.DailyDiaryLog -}} }
 \newcommand{\myNumDailyPersonal}{ {{- $numbers.DailyPersonal -}} }
 \newcommand{\myNumTodoLinesInTodoPage}{ {{- $numbers.TodoLinesInTodoPage -}} }
+\newcommand{\myNumPlanningStoryRows}{ {{- $numbers.PlanningStoryRows -}} }
 
 \newlength{\myLenTabColSep}
 \newlength{\myLenLineThicknessDefault}
@@ -67,6 +68,7 @@
 
 \newcommand{\myLineHeightButLine}{\myMinLineHeight{\myLenLineHeightButLine}}
 \newcommand{\myUnderline}[1]{#1\vskip1mm\myLineThick\par}
+\newcommand{\myUnderlineCheckbox}[1]{$\square$~~#1\vskip1mm\myLineThick\par}
 \newcommand{\myLineColor}[1]{\textcolor{#1}{\myLinePlain}}
 \newcommand{\myLineGray}{\myLineColor{\myColorGray}}
 \newcommand{\myLineLightGray}{\myLineColor{\myColorLightGray}}

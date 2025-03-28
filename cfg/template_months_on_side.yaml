@@ -47,6 +47,12 @@ pages:
         tpls:
           - mos_07_daily_notes.tpl
 
+  - name: daily_planning
+    renderblocks:
+      - funcname: daily_planning
+        tpls:
+          - mos_10_daily_planning.tpl
+
   - name: notes_indexed
     renderblocks:
       - funcname: notes_indexed

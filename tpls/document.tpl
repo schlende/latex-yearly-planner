@@ -1,5 +1,8 @@
 \documentclass[9pt]{extarticle}
 
+\usepackage{fontspec}
+\setmainfont{Lato}  % You can change this to any font installed on your system
+
 \usepackage{geometry}
 \usepackage[table]{xcolor}
 {{if $.Cfg.Debug.ShowFrame}}\usepackage{showframe}{{end}}
