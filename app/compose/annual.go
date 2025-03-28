@@ -21,8 +21,10 @@ func Annual(cfg config.Config, tpls []string) (page.Modules, error) {
 			"HeadingMOS":   year.HeadingMOS(),
 			"SideQuarters": year.SideQuarters(0),
 			"SideMonths":   year.SideMonths(0),
-			"Extra": header.Items{header.NewTextItem("Notes").RefText("Notes Index")}.
-				WithTopRightCorner(cfg.ClearTopRightCorner),
+			"Extra": header.Items{
+				header.NewTextItem("Notes").RefText("Notes Index"),
+				header.NewTextItem("Goals").RefText("Goals"),
+			}.WithTopRightCorner(cfg.ClearTopRightCorner),
 			"Extra2": extra2(cfg.ClearTopRightCorner, true, false, nil, 0),
 		},
 	}}, nil

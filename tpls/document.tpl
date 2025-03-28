@@ -26,6 +26,7 @@
 \usepackage{marginnote}
 \usepackage{adjustbox}
 \usepackage{multido}
+\usepackage{enumitem}
 
 \hypersetup{
     {{- if not .Cfg.Debug.ShowLinks}}hidelinks=true{{end -}}

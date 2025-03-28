@@ -11,6 +11,12 @@ pages:
         tpls:
           - mos_01_annual.tpl
 
+  - name: annual_goals
+    renderblocks:
+      - funcname: annual_goals
+        tpls:
+          - mos_11_annual_goals.tpl
+
   - name: quarterly
     renderblocks:
       - funcname: quarterly
