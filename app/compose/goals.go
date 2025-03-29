@@ -24,6 +24,14 @@ func BreadcrumbIndex(year *cal.Year) string {
 	}.Table(true)
 }
 
+func VisionBreadcrumb(year *cal.Year, label string) string {
+	return header.Items{
+		header.NewIntItem(year.Number),
+		header.NewTextItem("Goals").RefText("Goals"),
+		header.NewTextItem(label).Ref(true),
+	}.Table(true)
+}
+
 func Goals(cfg config.Config, tpls []string) (page.Modules, error) {
 	year := cal.NewYear(cfg.WeekStart, cfg.Year)
 	modules := make(page.Modules, 0, 1)
@@ -45,6 +53,20 @@ func Goals(cfg config.Config, tpls []string) (page.Modules, error) {
 			Body: map[string]interface{}{
 				"Year":       year,
 				"Breadcrumb": Breadcrumb(year, i),
+				"Extra":      header.Items{}.WithTopRightCorner(cfg.ClearTopRightCorner),
+			},
+		})
+	}
+
+	visionpages := []string{"10 Year Vision", "5 Year Vision", "1 Year Vision"}
+
+	for idx := range visionpages {
+		modules = append(modules, page.Module{
+			Cfg: cfg,
+			Tpl: tpls[2],
+			Body: map[string]interface{}{
+				"Year":       year,
+				"Breadcrumb": VisionBreadcrumb(year, visionpages[idx]),
 				"Extra":      header.Items{}.WithTopRightCorner(cfg.ClearTopRightCorner),
 			},
 		})

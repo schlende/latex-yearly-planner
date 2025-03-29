@@ -17,6 +17,8 @@ pages:
         tpls:
           - breadcrumb_11_annual_goals.tpl
           - breadcrumb_12_goal.tpl
+          - breadcrumb_13_vision.tpl
+          
 
   - name: quarterly
     renderblocks:
