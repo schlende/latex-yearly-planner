@@ -16,6 +16,7 @@ pages:
       - funcname: goals
         tpls:
           - breadcrumb_11_annual_goals.tpl
+          - breadcrumb_12_goal.tpl
 
   - name: quarterly
     renderblocks:

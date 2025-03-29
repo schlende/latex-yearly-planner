@@ -1,4 +1,4 @@
-\myUnderlineCheckbox{Read eulogy, vision and goals}
+\myUnderlineCheckbox{Read eulogy, vision and goals\hfill\hyperlink{Goals}{\textbf{Goals}}}
 \medskip
 
 \myUnderline{What was the story of the day (as if it already happened)?}

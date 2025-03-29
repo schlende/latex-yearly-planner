@@ -1,13 +1,23 @@
 package compose
 
 import (
+	"strconv"
+
 	"github.com/kudrykv/latex-yearly-planner/app/components/cal"
 	"github.com/kudrykv/latex-yearly-planner/app/components/header"
 	"github.com/kudrykv/latex-yearly-planner/app/components/page"
 	"github.com/kudrykv/latex-yearly-planner/app/config"
 )
 
-func Breadcrumb(year *cal.Year) string {
+func Breadcrumb(year *cal.Year, i int) string {
+	return header.Items{
+		header.NewIntItem(year.Number),
+		header.NewTextItem("Goals").RefText("Goals"),
+		header.NewTextItem("Goal " + strconv.Itoa(i+1)).Ref(true),
+	}.Table(true)
+}
+
+func BreadcrumbIndex(year *cal.Year) string {
 	return header.Items{
 		header.NewIntItem(year.Number),
 		header.NewTextItem("Goals").Ref(true),
@@ -16,13 +26,29 @@ func Breadcrumb(year *cal.Year) string {
 
 func Goals(cfg config.Config, tpls []string) (page.Modules, error) {
 	year := cal.NewYear(cfg.WeekStart, cfg.Year)
-	return page.Modules{{
+	modules := make(page.Modules, 0, 1)
+
+	modules = append(modules, page.Module{
 		Cfg: cfg,
 		Tpl: tpls[0],
 		Body: map[string]interface{}{
 			"Year":       year,
-			"Breadcrumb": Breadcrumb(year),
+			"Breadcrumb": BreadcrumbIndex(year),
 			"Extra":      header.Items{}.WithTopRightCorner(cfg.ClearTopRightCorner),
 		},
-	}}, nil
+	})
+
+	for i := 0; i < 3; i++ {
+		modules = append(modules, page.Module{
+			Cfg: cfg,
+			Tpl: tpls[1],
+			Body: map[string]interface{}{
+				"Year":       year,
+				"Breadcrumb": Breadcrumb(year, i),
+				"Extra":      header.Items{}.WithTopRightCorner(cfg.ClearTopRightCorner),
+			},
+		})
+	}
+
+	return modules, nil
 }

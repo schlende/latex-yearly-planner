@@ -68,6 +68,7 @@
 
 \newcommand{\myLineHeightButLine}{\myMinLineHeight{\myLenLineHeightButLine}}
 \newcommand{\myUnderline}[1]{#1\vskip1mm\myLineThick\par}
+\newcommand{\myUnderlineLight}[1]{#1\vskip1mm\myLinePlain\par}
 \newcommand{\myUnderlineCheckbox}[1]{$\square$~~#1\vskip1mm\myLineThick\par}
 \newcommand{\myLineColor}[1]{\textcolor{#1}{\myLinePlain}}
 \newcommand{\myLineGray}{\myLineColor{\myColorGray}}
